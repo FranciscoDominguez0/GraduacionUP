@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 
 
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 
 /**
  *
@@ -23,6 +24,7 @@ public class SolicitudesForm extends javax.swing.JFrame {
      */
     public SolicitudesForm() {
         initComponents();
+        this.setTitle("Panel Solicitudes");
         TxtSolicitud.setOpaque(false);
         textoSombra sombra = new textoSombra("Describe tu solicitud de revision...", TxtSolicitud);
 
@@ -184,13 +186,13 @@ public class SolicitudesForm extends javax.swing.JFrame {
         JtableDatos.setForeground(new java.awt.Color(51, 51, 51));
         JtableDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         JtableDatos.setGridColor(new java.awt.Color(255, 255, 255));
@@ -219,6 +221,7 @@ public class SolicitudesForm extends javax.swing.JFrame {
         LoginForm form = new LoginForm();
 
         form.setVisible(true);
+        form.setExtendedState(JFrame.MAXIMIZED_BOTH);
         form.setLocationRelativeTo(null);
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
@@ -226,6 +229,7 @@ public class SolicitudesForm extends javax.swing.JFrame {
       this.dispose();
       AdminForm adminForm = new AdminForm();
       adminForm.setVisible(true);
+      adminForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TxtSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSolicitudActionPerformed

@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 
 
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 
 /**
  *
@@ -20,6 +21,7 @@ public class NotificacionesForm extends javax.swing.JFrame {
      * Creates new form DocumentosForm
      */
     public NotificacionesForm() {
+        this.setTitle("Panel Notificaciones");
         initComponents();
        
     }
@@ -325,6 +327,7 @@ public class NotificacionesForm extends javax.swing.JFrame {
         LoginForm form = new LoginForm();
 
         form.setVisible(true);
+        form.setExtendedState(JFrame.MAXIMIZED_BOTH);
         form.setLocationRelativeTo(null);
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
@@ -332,6 +335,7 @@ public class NotificacionesForm extends javax.swing.JFrame {
       this.dispose();
       AdminForm adminForm = new AdminForm();
       adminForm.setVisible(true);
+      adminForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

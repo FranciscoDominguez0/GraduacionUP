@@ -54,6 +54,8 @@ public class ControladorUsuario implements ActionListener {
 
                 } else {
                     JOptionPane.showMessageDialog(null, "Contraseña o Usuario incorrecto");
+                    login.txtClave.setText("");
+                    login.txtusuario.setText("");
 
                 }
             }

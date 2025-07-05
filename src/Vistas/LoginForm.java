@@ -76,7 +76,7 @@ public class LoginForm extends javax.swing.JFrame {
         jPanelLog.setBackground(new java.awt.Color(255, 255, 255));
         jPanelLog.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        checkRecodar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        checkRecodar.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         checkRecodar.setForeground(new java.awt.Color(150, 150, 150));
         checkRecodar.setText("Recuérdame");
         checkRecodar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -90,7 +90,7 @@ public class LoginForm extends javax.swing.JFrame {
         jPanelLog.add(loginLoader, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 540, 140, 0));
 
         txtusuario.setBackground(new java.awt.Color(0, 0, 0, 0));
-        txtusuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtusuario.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtusuario.setForeground(new java.awt.Color(30, 30, 30));
         txtusuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtusuario.setToolTipText("");
@@ -113,7 +113,7 @@ public class LoginForm extends javax.swing.JFrame {
         jPanelLog.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 340, 40));
 
         txtClave.setBackground(new java.awt.Color(0, 0, 0, 0));
-        txtClave.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtClave.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtClave.setForeground(new java.awt.Color(0, 0, 0));
         txtClave.setToolTipText("");
         txtClave.setBorder(null);
@@ -173,10 +173,10 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-graduation-cap-60.png"))); // NOI18N
         jPanelLog.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(51, 51, 51));
         jLabel10.setText("Sistema de Gestión de Documentos Universitarios");
-        jPanelLog.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 140, 310, -1));
+        jPanelLog.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 410, -1));
 
         jPanel1.add(jPanelLog, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 853, 600));
 

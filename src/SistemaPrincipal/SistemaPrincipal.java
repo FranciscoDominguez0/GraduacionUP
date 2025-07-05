@@ -6,6 +6,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 public class SistemaPrincipal {
 
@@ -21,8 +22,9 @@ public class SistemaPrincipal {
         LoginForm loginForm = new LoginForm();
         loginForm.setVisible(true);
         loginForm.setTitle("Panel Login");
+         loginForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
    
-        loginForm.setLocationRelativeTo(null);
+     
    
 
     }

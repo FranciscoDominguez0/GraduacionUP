@@ -9,6 +9,7 @@ import javax.swing.ImageIcon;
 
 
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 
 /**
  *
@@ -21,6 +22,7 @@ public class DocumentosForm extends javax.swing.JFrame {
      */
     public DocumentosForm() {
         initComponents();
+        this.setTitle("Panel Documentos");
        
     }
  private String url; // Ruta del archivo seleccionado
@@ -201,13 +203,15 @@ public class DocumentosForm extends javax.swing.JFrame {
         LoginForm form = new LoginForm();
 
         form.setVisible(true);
-        form.setLocationRelativeTo(null);
+        form.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       this.dispose();
       AdminForm adminForm = new AdminForm();
       adminForm.setVisible(true);
+       adminForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
