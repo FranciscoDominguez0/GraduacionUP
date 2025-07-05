@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vistas;
+import Modelos.SolicitudDatos;
+import Modelos.textoSombra;
 import java.awt.Image;
 import java.io.File;
 import javax.swing.ImageIcon;
@@ -14,14 +16,20 @@ import javax.swing.JFileChooser;
  *
  * @author domin
  */
-public class DocumentosForm extends javax.swing.JFrame {
+public class SolicitudesForm extends javax.swing.JFrame {
 
     /**
      * Creates new form DocumentosForm
      */
-    public DocumentosForm() {
+    public SolicitudesForm() {
         initComponents();
-       
+        TxtSolicitud.setOpaque(false);
+        textoSombra sombra = new textoSombra("Describe tu solicitud de revision...", TxtSolicitud);
+
+        int id = 2;
+        SolicitudDatos datos = new SolicitudDatos();
+        datos.cargarSolicitudes(id, JtableDatos);
+
     }
  private String url; // Ruta del archivo seleccionado
 
@@ -48,11 +56,11 @@ public class DocumentosForm extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         txtRuta = new javax.swing.JLabel();
+        TxtSolicitud = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JtableDatos = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -133,62 +141,72 @@ public class DocumentosForm extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(51, 51, 51));
         jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-upload-25 (1).png"))); // NOI18N
-        jButton3.setText("Subir Documento");
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-sent-25.png"))); // NOI18N
+        jButton3.setText("Enviar Solicitud");
         jButton3.setBorder(null);
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1170, 60));
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 1170, 60));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(51, 51, 51));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-upload-25.png"))); // NOI18N
-        jLabel18.setText("Subir Nuevo Documento");
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-send-25.png"))); // NOI18N
+        jLabel18.setText("Nueva Solicitud de Revisión");
         jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 350, 50));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel7.setText("Selecciona el tipo de documento y sube el archivo correspondiente");
+        jLabel7.setText("Envía una solicitud para que revisen tus documentos subidos");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 47, -1, 30));
-
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar tipo de documento", "Certificación de inglés", "Certificado de paz y salvo", "Recibo original de inscripción", "Certificación de servicio social" }));
-        jComboBox1.setBorder(null);
-        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 1190, 40));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Tipo de Documento");
+        jLabel8.setText("Descripción de la Solicitud");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, 30));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Selecciona un archivo");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 180, 140, 30));
-
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 890, 70));
 
         txtRuta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtRuta.setForeground(new java.awt.Color(0, 0, 0));
         jPanel3.add(txtRuta, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 230, 280, 50));
+
+        TxtSolicitud.setBackground(new java.awt.Color(255, 255, 255));
+        TxtSolicitud.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        TxtSolicitud.setForeground(new java.awt.Color(0, 0, 0));
+        TxtSolicitud.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        TxtSolicitud.setCaretColor(new java.awt.Color(0, 0, 0));
+        TxtSolicitud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtSolicitudActionPerformed(evt);
+            }
+        });
+        jPanel3.add(TxtSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 1150, 80));
+
+        JtableDatos.setBackground(new java.awt.Color(255, 255, 255));
+        JtableDatos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        JtableDatos.setForeground(new java.awt.Color(51, 51, 51));
+        JtableDatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        JtableDatos.setGridColor(new java.awt.Color(255, 255, 255));
+        JtableDatos.setSelectionBackground(new java.awt.Color(204, 204, 255));
+        JtableDatos.setSelectionForeground(new java.awt.Color(29, 78, 216));
+        jScrollPane1.setViewportView(JtableDatos);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 1150, 120));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 1250, 530));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(51, 51, 51));
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-folder-25.png"))); // NOI18N
-        jLabel19.setText("Documentos de Solicitud");
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-clipboard-25.png"))); // NOI18N
+        jLabel19.setText("Solicitud de Seguimiento");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 350, 50));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 768));
@@ -210,27 +228,9 @@ public class DocumentosForm extends javax.swing.JFrame {
       adminForm.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-           JFileChooser j = new JFileChooser();
-
-    int a = j.showOpenDialog(this);
-
-    if (a == JFileChooser.APPROVE_OPTION) {
-        File archivo = j.getSelectedFile();
-
-        // Ruta completa (opcional para guardar en BD)
-        url = archivo.getAbsolutePath();
-
-        // Obtener solo el nombre del archivo
-        String nombreArchivo = archivo.getName();
-
-        
-
-        // Mostrar solo el nombre del archivo en el campo de texto
-        txtRuta.setText(nombreArchivo);
-    }
-
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void TxtSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSolicitudActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtSolicitudActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,10 +239,10 @@ public class DocumentosForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion;
+    public javax.swing.JTable JtableDatos;
+    private javax.swing.JTextField TxtSolicitud;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -251,11 +251,11 @@ public class DocumentosForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelmenu;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel txtRuta;
     // End of variables declaration//GEN-END:variables
 }

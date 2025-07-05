@@ -44,7 +44,7 @@ public class ControladorUsuario implements ActionListener {
                 usuario = consulta.login(user, clave);
 
                 if (usuario.getNombreUsuario() != null) {
-
+               
                     JOptionPane.showMessageDialog(null, "Inicio Exitoso");
 
                     AdminForm adminForm = new AdminForm();

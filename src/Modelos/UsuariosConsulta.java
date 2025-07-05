@@ -42,6 +42,8 @@ public class UsuariosConsulta {
     return us;
 }
     
+
+    
     
     
     
