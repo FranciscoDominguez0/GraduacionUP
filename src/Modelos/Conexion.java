@@ -6,6 +6,7 @@ package Modelos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,7 +24,13 @@ public class Conexion {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = (Connection) DriverManager.getConnection(URL, USER, CLAVE);
         }catch(Exception e){
-            System.out.println("Error: " + e.getMessage());
+            JOptionPane.showMessageDialog(
+            null,                           // Componente padre (null para centrar)
+            "Error al conectar a la base de datos",  // Mensaje a mostrar
+            "Error",                        // Título de la ventana
+            JOptionPane.ERROR_MESSAGE       // Tipo de mensaje (ícono de error)
+        );
+           
         }
         return con;
     }

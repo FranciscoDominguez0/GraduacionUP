@@ -44,7 +44,7 @@ public class ControladorUsuario implements ActionListener {
                 usuario = consulta.login(user, clave);
 
                 if (usuario.getNombreUsuario() != null) {
-               
+
                     JOptionPane.showMessageDialog(null, "Inicio Exitoso");
 
                     AdminForm adminForm = new AdminForm();
@@ -53,7 +53,13 @@ public class ControladorUsuario implements ActionListener {
                     login.dispose();
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "Contraseña o Usuario incorrecto");
+                    JOptionPane.showMessageDialog(
+                            null, // Componente padre (null para centrar)
+                            "Contraseña o Usuario incorrecto", // Mensaje a mostrar
+                            "Error", // Título de la ventana
+                            JOptionPane.ERROR_MESSAGE // Tipo de mensaje (ícono de error)
+                    );
+
                     login.txtClave.setText("");
                     login.txtusuario.setText("");
 
