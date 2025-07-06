@@ -11,46 +11,66 @@ import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.SwingWorker;
 /**
  *
  * @author domin
  */
 public class SolicitudDatos {
    
-    public void cargarSolicitudes(int usuarioId, JTable tabla) {
-        DefaultTableModel modelo = new DefaultTableModel();
-        modelo.addColumn("Descripción");
-        modelo.addColumn("Estado");
-        modelo.addColumn("Fecha");
+   public void cargarSolicitudesAsync(int usuarioId, JTable tabla) {
+        SwingWorker<DefaultTableModel, Void> worker = new SwingWorker<>() {
 
-        Conexion conexion = new Conexion();
-        Connection con = conexion.getConexion();
+            @Override
+            protected DefaultTableModel doInBackground() {
+                DefaultTableModel modelo = new DefaultTableModel();
+                modelo.addColumn("Descripción");
+                modelo.addColumn("Estado");
+                modelo.addColumn("Fecha");
 
-        if (con != null) {
-            try {
-                String sql = "SELECT descripcion, estado, fecha FROM solicitudes WHERE usuario_id = ?";
-                PreparedStatement stmt = con.prepareStatement(sql);
-                stmt.setInt(1, usuarioId);
-                ResultSet rs = stmt.executeQuery();
+                Conexion conexion = new Conexion();
+                Connection con = conexion.getConexion();
 
-                while (rs.next()) {
-                    String descripcion = rs.getString("descripcion");
-                    String estado = rs.getString("estado");
-                    String fecha = rs.getString("fecha");
-                    modelo.addRow(new Object[]{descripcion, estado, fecha});
+                if (con != null) {
+                    try {
+                        String sql = "SELECT descripcion, estado, fecha FROM solicitudes WHERE usuario_id = ? ORDER BY fecha DESC LIMIT 20";
+                        PreparedStatement stmt = con.prepareStatement(sql);
+                        stmt.setInt(1, usuarioId);
+                        ResultSet rs = stmt.executeQuery();
+
+                        while (rs.next()) {
+                            String descripcion = rs.getString("descripcion");
+                            String estado = rs.getString("estado");
+                            String fecha = rs.getString("fecha");
+                            modelo.addRow(new Object[]{descripcion, estado, fecha});
+                        }
+
+                        rs.close();
+                        stmt.close();
+                        con.close();
+
+                    } catch (SQLException e) {
+                        JOptionPane.showMessageDialog(null, "Error al cargar solicitudes: " + e.getMessage());
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos.");
                 }
 
-                tabla.setModel(modelo); // <- Aquí usamos el JTable que ya está en el formulario
-
-                rs.close();
-                stmt.close();
-                con.close();
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, "Error al cargar solicitudes: " + e.getMessage());
+                return modelo;
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "No se pudo conectar a la base de datos.");
-        }
+
+            @Override
+            protected void done() {
+                try {
+                    DefaultTableModel modelo = get();
+                    tabla.setModel(modelo);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error al actualizar la tabla: " + ex.getMessage());
+                }
+            }
+        };
+
+        worker.execute();
     }
 
     

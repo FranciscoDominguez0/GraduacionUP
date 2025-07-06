@@ -6,7 +6,7 @@
  * Author:  domin
  * Created: 07/04/2025
  */
--- Crear la base de datos
+-- Crear la base de datos d
 CREATE DATABASE IF NOT EXISTS graduacionUP;
 USE graduacionUP;
 

@@ -30,7 +30,8 @@ public class SolicitudesForm extends javax.swing.JFrame {
 
         int id = 2;
         SolicitudDatos datos = new SolicitudDatos();
-        datos.cargarSolicitudes(id, JtableDatos);
+        datos.cargarSolicitudesAsync(id, JtableDatos);
+
 
     }
  private String url; // Ruta del archivo seleccionado
