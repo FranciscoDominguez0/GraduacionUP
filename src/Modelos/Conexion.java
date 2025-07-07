@@ -16,8 +16,8 @@ public class Conexion {
     
       
     public static final String URL = "jdbc:mysql://be7hl0vroswrv8hunkxi-mysql.services.clever-cloud.com:3306/be7hl0vroswrv8hunkxi";
-    public static final String USER = "upujfg1iw1jwy9wb";      // ← reemplaza por tu MYSQL_ADDON_USER
-    public static final String CLAVE = "riJSMap5teZZfHXDUQma";  // ← reemplaza por tu MYSQL_ADDON_PASSWORD
+    public static final String USER = "upujfg1iw1jwy9wb";     
+    public static final String CLAVE = "riJSMap5teZZfHXDUQma";  
      
     public Connection getConexion(){
         Connection con = null;
