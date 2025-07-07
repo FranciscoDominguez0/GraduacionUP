@@ -3,12 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vistas;
-import java.awt.Image;
-import java.io.File;
-import javax.swing.ImageIcon;
 
-
-import javax.swing.JFileChooser;
+import Modelos.NotificacionesDAO;
+import java.awt.Color;
 import javax.swing.JFrame;
 
 /**
@@ -17,16 +14,17 @@ import javax.swing.JFrame;
  */
 public class NotificacionesForm extends javax.swing.JFrame {
 
-    /**
-     * Creates new form DocumentosForm
-     */
     public NotificacionesForm() {
         this.setTitle("Panel Notificaciones");
         initComponents();
-       
-    }
- private String url; // Ruta del archivo seleccionado
+        NotificacionesDAO aO = new NotificacionesDAO();
+        JtableNotifi.setModel(aO.obtenerNotificaciones());
+        // Cambiar fuente del encabezado de columna
+       //JtableNotifi.getTableHeader().setFont(new java.awt.Font("Thaoma", java.awt.Font.PLAIN, 13));
 
+        
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -50,6 +48,8 @@ public class NotificacionesForm extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         txtRuta = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JtableNotifi = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -85,6 +85,14 @@ public class NotificacionesForm extends javax.swing.JFrame {
         BtnCerrarSesion.setFocusPainted(false);
         BtnCerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         BtnCerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        BtnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnCerrarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnCerrarSesionMouseExited(evt);
+            }
+        });
         BtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCerrarSesionActionPerformed(evt);
@@ -157,6 +165,42 @@ public class NotificacionesForm extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(102, 102, 102));
         jLabel10.setText("Historial completo de notificaciones sobre el estado de tus documentos");
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 30));
+
+        JtableNotifi.setBackground(new java.awt.Color(255, 255, 255));
+        JtableNotifi.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        JtableNotifi.setForeground(new java.awt.Color(0, 0, 0));
+        JtableNotifi.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Estado", "Mensaje", "Fecha"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        JtableNotifi.setGridColor(new java.awt.Color(255, 255, 255));
+        JtableNotifi.setSelectionBackground(new java.awt.Color(204, 204, 255));
+        JtableNotifi.setSelectionForeground(new java.awt.Color(29, 78, 216));
+        jScrollPane1.setViewportView(JtableNotifi);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 1090, 180));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, 1250, 450));
 
@@ -332,19 +376,28 @@ public class NotificacionesForm extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      this.dispose();
-      AdminForm adminForm = new AdminForm();
-      adminForm.setVisible(true);
-      adminForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.dispose();
+        AdminForm adminForm = new AdminForm();
+        adminForm.setVisible(true);
+        adminForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void BtnCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCerrarSesionMouseExited
+         BtnCerrarSesion.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_BtnCerrarSesionMouseExited
+
+    private void BtnCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCerrarSesionMouseEntered
+       BtnCerrarSesion.setForeground(new Color(51, 51, 51));
+
+    }//GEN-LAST:event_BtnCerrarSesionMouseEntered
 
     /**
      * @param args the command line arguments
      */
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion;
+    private javax.swing.JTable JtableNotifi;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -373,6 +426,7 @@ public class NotificacionesForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel txtRuta;
     // End of variables declaration//GEN-END:variables
 }

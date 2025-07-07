@@ -4,11 +4,9 @@
  */
 package Vistas;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
-import javax.swing.text.html.CSS;
 
 /**
  *
@@ -16,8 +14,6 @@ import javax.swing.text.html.CSS;
  */
 public class AdminForm extends javax.swing.JFrame {
 
- 
-    
     public AdminForm() {
         initComponents();
         this.setLayout(new java.awt.BorderLayout());
@@ -307,19 +303,18 @@ public class AdminForm extends javax.swing.JFrame {
     private void BtnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCerrarSesionActionPerformed
         this.dispose();
         LoginForm form = new LoginForm();
-        
+
         form.setVisible(true);
         form.setExtendedState(JFrame.MAXIMIZED_BOTH);
-   
-                
-                
+
+
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
         SolicitudesForm form = new SolicitudesForm();
         form.setVisible(true);
-         form.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        form.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -333,12 +328,12 @@ public class AdminForm extends javax.swing.JFrame {
         this.dispose();
         DocumentosForm df = new DocumentosForm();
         df.setVisible(true);
-         df.setExtendedState(JFrame.MAXIMIZED_BOTH);
-      
+        df.setExtendedState(JFrame.MAXIMIZED_BOTH);
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jPanel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseEntered
-       jPanel8.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        jPanel8.setBorder(BorderFactory.createLineBorder(Color.BLUE));
     }//GEN-LAST:event_jPanel8MouseEntered
 
     private void jPanel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel8MouseExited
@@ -358,22 +353,21 @@ public class AdminForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel7MouseEntered
 
     private void jPanel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel7MouseExited
-         jPanel7.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        jPanel7.setBorder(BorderFactory.createLineBorder(Color.WHITE));
     }//GEN-LAST:event_jPanel7MouseExited
 
     private void BtnCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCerrarSesionMouseEntered
-      BtnCerrarSesion.setForeground(new Color(51,51,51));
+        BtnCerrarSesion.setForeground(new Color(51, 51, 51));
     }//GEN-LAST:event_BtnCerrarSesionMouseEntered
 
     private void BtnCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCerrarSesionMouseExited
-       BtnCerrarSesion.setForeground(new Color(255,255,255));
-        
+        BtnCerrarSesion.setForeground(new Color(255, 255, 255));
+
     }//GEN-LAST:event_BtnCerrarSesionMouseExited
 
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion;

@@ -3,13 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vistas;
-import java.awt.Image;
+
+import java.awt.Color;
 import java.io.File;
-import javax.swing.ImageIcon;
-
-
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,10 +22,9 @@ public class DocumentosForm extends javax.swing.JFrame {
     public DocumentosForm() {
         initComponents();
         this.setTitle("Panel Documentos");
-       
-    }
- private String url; // Ruta del archivo seleccionado
 
+    }
+    private String url; // Ruta del archivo seleccionado
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,6 +72,14 @@ public class DocumentosForm extends javax.swing.JFrame {
         BtnCerrarSesion.setFocusPainted(false);
         BtnCerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         BtnCerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        BtnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnCerrarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnCerrarSesionMouseExited(evt);
+            }
+        });
         BtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCerrarSesionActionPerformed(evt);
@@ -138,6 +144,11 @@ public class DocumentosForm extends javax.swing.JFrame {
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-upload-25 (1).png"))); // NOI18N
         jButton3.setText("Subir Documento");
         jButton3.setBorder(null);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 1170, 60));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -208,38 +219,78 @@ public class DocumentosForm extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      this.dispose();
-      AdminForm adminForm = new AdminForm();
-      adminForm.setVisible(true);
-       adminForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.dispose();
+        AdminForm adminForm = new AdminForm();
+        adminForm.setVisible(true);
+        adminForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-           JFileChooser j = new JFileChooser();
+        JFileChooser j = new JFileChooser();
 
-    int a = j.showOpenDialog(this);
+        int a = j.showOpenDialog(this);
 
-    if (a == JFileChooser.APPROVE_OPTION) {
-        File archivo = j.getSelectedFile();
+        if (a == JFileChooser.APPROVE_OPTION) {
+            File archivo = j.getSelectedFile();
 
-        // Ruta completa (opcional para guardar en BD)
-        url = archivo.getAbsolutePath();
+            // Ruta completa (opcional para guardar en BD)
+            url = archivo.getAbsolutePath();
 
-        // Obtener solo el nombre del archivo
-        String nombreArchivo = archivo.getName();
+            // Obtener solo el nombre del archivo
+            String nombreArchivo = archivo.getName();
 
-        
-
-        // Mostrar solo el nombre del archivo en el campo de texto
-        txtRuta.setText(nombreArchivo);
-    }
+            // Mostrar solo el nombre del archivo en el campo de texto
+            txtRuta.setText(nombreArchivo);
+        }
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void BtnCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCerrarSesionMouseEntered
+        BtnCerrarSesion.setForeground(new Color(51, 51, 51));
+
+
+    }//GEN-LAST:event_BtnCerrarSesionMouseEntered
+
+    private void BtnCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCerrarSesionMouseExited
+        BtnCerrarSesion.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_BtnCerrarSesionMouseExited
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String seleccion = jComboBox1.getSelectedItem().toString();
+        
+        if (seleccion.equals("Seleccionar tipo de documento")) {
+             JOptionPane.showMessageDialog(
+            null,                          
+            "Debes seleccionar el tipo de documento",  
+            "Sin Documento",                        
+            JOptionPane.WARNING_MESSAGE     
+        );
+            
+        } else if (txtRuta.getText().equals("")) {
+            JOptionPane.showMessageDialog(
+            null,                          
+            "Debes agregar el documento: "+seleccion,  
+            "Sin Documento",                        
+            JOptionPane.WARNING_MESSAGE     
+        );
+            
+        }else{
+            JOptionPane.showMessageDialog(
+            null,                          
+            "Documento enviado, para revision",  
+            "Exito",                        
+            JOptionPane.INFORMATION_MESSAGE   
+                    
+        );
+            jComboBox1.setSelectedIndex(0);
+            txtRuta.setText("");
+
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion;

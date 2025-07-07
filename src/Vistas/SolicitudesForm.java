@@ -3,15 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vistas;
+
 import Modelos.SolicitudDatos;
 import Modelos.textoSombra;
-import java.awt.Image;
-import java.io.File;
-import javax.swing.ImageIcon;
-
-
-import javax.swing.JFileChooser;
+import java.awt.Color;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,9 +16,6 @@ import javax.swing.JFrame;
  */
 public class SolicitudesForm extends javax.swing.JFrame {
 
-    /**
-     * Creates new form DocumentosForm
-     */
     public SolicitudesForm() {
         initComponents();
         this.setTitle("Panel Solicitudes");
@@ -30,12 +24,10 @@ public class SolicitudesForm extends javax.swing.JFrame {
 
         int id = 2;
         SolicitudDatos datos = new SolicitudDatos();
-        datos.cargarSolicitudesAsync(id, JtableDatos);
-
+        datos.cargarSolicitudes(id, JtableDatos);
 
     }
- private String url; // Ruta del archivo seleccionado
-
+    private String url; // Ruta del archivo seleccionado
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,6 +56,7 @@ public class SolicitudesForm extends javax.swing.JFrame {
         TxtSolicitud = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         JtableDatos = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -83,6 +76,14 @@ public class SolicitudesForm extends javax.swing.JFrame {
         BtnCerrarSesion.setFocusPainted(false);
         BtnCerrarSesion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         BtnCerrarSesion.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        BtnCerrarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                BtnCerrarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                BtnCerrarSesionMouseExited(evt);
+            }
+        });
         BtnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnCerrarSesionActionPerformed(evt);
@@ -147,6 +148,11 @@ public class SolicitudesForm extends javax.swing.JFrame {
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-sent-25.png"))); // NOI18N
         jButton3.setText("Enviar Solicitud");
         jButton3.setBorder(null);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 1170, 60));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -173,14 +179,16 @@ public class SolicitudesForm extends javax.swing.JFrame {
         TxtSolicitud.setBackground(new java.awt.Color(255, 255, 255));
         TxtSolicitud.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         TxtSolicitud.setForeground(new java.awt.Color(0, 0, 0));
-        TxtSolicitud.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        TxtSolicitud.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        TxtSolicitud.setBorder(null);
         TxtSolicitud.setCaretColor(new java.awt.Color(0, 0, 0));
+        TxtSolicitud.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         TxtSolicitud.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtSolicitudActionPerformed(evt);
             }
         });
-        jPanel3.add(TxtSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 1150, 80));
+        jPanel3.add(TxtSolicitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 1110, 40));
 
         JtableDatos.setBackground(new java.awt.Color(255, 255, 255));
         JtableDatos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -202,6 +210,22 @@ public class SolicitudesForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(JtableDatos);
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, 1150, 120));
+
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1148, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 78, Short.MAX_VALUE)
+        );
+
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 1150, 80));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 1250, 530));
 
@@ -227,20 +251,59 @@ public class SolicitudesForm extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnCerrarSesionActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      this.dispose();
-      AdminForm adminForm = new AdminForm();
-      adminForm.setVisible(true);
-      adminForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        this.dispose();
+        AdminForm adminForm = new AdminForm();
+        adminForm.setVisible(true);
+        adminForm.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TxtSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtSolicitudActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtSolicitudActionPerformed
 
+    private void BtnCerrarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCerrarSesionMouseExited
+         BtnCerrarSesion.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_BtnCerrarSesionMouseExited
+
+    private void BtnCerrarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnCerrarSesionMouseEntered
+        BtnCerrarSesion.setForeground(new Color(51, 51, 51));
+
+    }//GEN-LAST:event_BtnCerrarSesionMouseEntered
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if (TxtSolicitud.getText().equals("")) {
+             JOptionPane.showMessageDialog(
+            null,                          
+            "Debes agregar un mensaje",  
+            "Sin mensaje",                        
+            JOptionPane.WARNING_MESSAGE
+        );
+            
+        }else if(JtableDatos.getSelectedRow() == -1){
+            JOptionPane.showMessageDialog(
+            null,                          
+            "Debes seleccionar el tramite que deseas que revisen",  
+            "Sin seleccion",                        
+            JOptionPane.WARNING_MESSAGE
+            );
+            
+        }else{
+             JOptionPane.showMessageDialog(
+            null,                          
+            "Solicitud de revision enviada",  
+            "Exito",                        
+            JOptionPane.INFORMATION_MESSAGE
+            );
+             
+             TxtSolicitud.setText("");
+             JtableDatos.clearSelection();
+            
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCerrarSesion;
@@ -260,6 +323,7 @@ public class SolicitudesForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel txtRuta;
     // End of variables declaration//GEN-END:variables

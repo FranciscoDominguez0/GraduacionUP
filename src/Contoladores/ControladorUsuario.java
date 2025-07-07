@@ -8,6 +8,7 @@ import Modelos.Usuarios;
 import Modelos.UsuariosConsulta;
 import Vistas.AdminForm;
 import Vistas.LoginForm;
+import java.awt.Cursor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
@@ -62,6 +63,7 @@ public class ControladorUsuario implements ActionListener {
 
                     login.txtClave.setText("");
                     login.txtusuario.setText("");
+                    login.txtusuario.requestFocusInWindow();
 
                 }
             }

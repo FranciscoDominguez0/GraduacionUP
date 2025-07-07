@@ -8,34 +8,25 @@ import Contoladores.ControladorUsuario;
 import Modelos.Usuarios;
 import Modelos.UsuariosConsulta;
 import Modelos.textoSombra;
-import java.awt.Color;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
-import javax.swing.text.html.CSS;
 
 /**
  *
  * @author domin
  */
 public class LoginForm extends javax.swing.JFrame {
-    
+
     Usuarios usuarios = new Usuarios();
     UsuariosConsulta consulta = new UsuariosConsulta();
-    
- 
-    
+
     public LoginForm() {
         initComponents();
-        
-        
-
         txtusuario.setOpaque(false);
         txtClave.setOpaque(false);
         textoSombra usuario = new textoSombra("Ingrese su usuario", txtusuario);
         textoSombra clave = new textoSombra("Ingrese su contraseña", txtClave);
-        
+
         ControladorUsuario controladorUsuario = new ControladorUsuario(this, usuarios, consulta);
-        
+
     }
 
     /**
@@ -93,7 +84,6 @@ public class LoginForm extends javax.swing.JFrame {
         txtusuario.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         txtusuario.setForeground(new java.awt.Color(30, 30, 30));
         txtusuario.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtusuario.setToolTipText("");
         txtusuario.setBorder(null);
         txtusuario.setOpaque(true);
         txtusuario.setSelectionColor(new java.awt.Color(255, 255, 255));
@@ -186,7 +176,7 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusuarioActionPerformed
-   txtClave.requestFocus();
+        txtClave.requestFocus();
     }//GEN-LAST:event_txtusuarioActionPerformed
 
     private void txtClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClaveActionPerformed
@@ -198,7 +188,7 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogin1ActionPerformed
 
     private void txtusuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtusuarioMouseEntered
-      
+
     }//GEN-LAST:event_txtusuarioMouseEntered
 
     private void txtusuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtusuarioMouseExited
@@ -208,7 +198,6 @@ public class LoginForm extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnLogin1;
