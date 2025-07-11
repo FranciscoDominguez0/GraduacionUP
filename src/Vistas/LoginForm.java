@@ -43,6 +43,7 @@ public class LoginForm extends javax.swing.JFrame {
         checkRecodar = new javax.swing.JCheckBox();
         loginLoader = new javax.swing.JProgressBar();
         txtusuario = new javax.swing.JTextField();
+        btnVerClave = new javax.swing.JButton();
         txtClave = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -101,6 +102,27 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
         jPanelLog.add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 220, 340, 40));
+
+        btnVerClave.setBackground(new java.awt.Color(255, 255, 255));
+        btnVerClave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Group.png"))); // NOI18N
+        btnVerClave.setBorder(null);
+        btnVerClave.setBorderPainted(false);
+        btnVerClave.setContentAreaFilled(false);
+        btnVerClave.setFocusPainted(false);
+        btnVerClave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnVerClaveMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnVerClaveMouseReleased(evt);
+            }
+        });
+        btnVerClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerClaveActionPerformed(evt);
+            }
+        });
+        jPanelLog.add(btnVerClave, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 310, 40, 50));
 
         txtClave.setBackground(new java.awt.Color(0, 0, 0, 0));
         txtClave.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -195,12 +217,25 @@ public class LoginForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtusuarioMouseExited
 
+    private void btnVerClaveMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerClaveMousePressed
+        txtClave.setEchoChar((char) 0);
+    }//GEN-LAST:event_btnVerClaveMousePressed
+
+    private void btnVerClaveMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerClaveMouseReleased
+         txtClave.setEchoChar('•');
+    }//GEN-LAST:event_btnVerClaveMouseReleased
+
+    private void btnVerClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnVerClaveActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnLogin1;
+    private javax.swing.JButton btnVerClave;
     private javax.swing.JCheckBox checkRecodar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
